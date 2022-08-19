@@ -1,0 +1,39 @@
+@use "./base/variables";
+
+// ---- RESET -----
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body {
+  background-color: variables.$black;
+  font-family: variables.$font-primary;
+}
+button {
+  padding: 0;
+  color: inherit;
+  background: inherit;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  @media (variables.$media-l) {
+    &:hover {
+      opacity: 0.8;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+  }
+}
+.wrapper-site {
+  max-width: variables.$wrapper-site;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+}
