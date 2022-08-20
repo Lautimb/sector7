@@ -1,0 +1,38 @@
+@use "../../scss/base/variables";
+
+.menu-mobile {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: variables.$dark-gray;
+  color: variables.$light-gray;
+  height: variables.px(75);
+  ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-evenly;
+    li {
+      padding: variables.$size-xs;
+      a,
+      button {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: variables.px(14);
+        font-family: variables.$font-secondary;
+        &:hover,
+        &:active {
+          color: variables.$red;
+          opacity: 1;
+        }
+        i {
+          margin-bottom: variables.$size-xs;
+          font-size: variables.px(20);
+        }
+      }
+    }
+  }
+}

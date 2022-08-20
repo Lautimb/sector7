@@ -1,0 +1,38 @@
+//Pixels
+$em: 0.0625em; //1px
+$rem: 0.0625rem; //1px
+
+@function px($base) {
+  $result: $rem * $base;
+  @return $result;
+}
+// Font Families
+$font-primary: "Jost", sans-serif;
+$font-secondary: "Montserrat", sans-serif;
+
+// Spaces
+$size-2xs: 0.25rem; // 4px
+$size-xs: 0.5rem; // 8px
+$size-s: 1rem; // 16px
+$size-m: 1.5rem; // 24px
+$size-l: 2rem; // 32px
+$size-xl: 2.5rem; // 40px
+
+// Colors
+$black: #0b0b0b;
+$dark-gray: #171717;
+$gray: #969191;
+$light-gray: #ebe7e7;
+$white: #ffffff;
+$red: #ed0d1a;
+
+// Media Queries
+$media-xs: "min-width : 20rem"; // 320px
+$media-s: "min-width : 23rem"; // 368px
+$media-m: "min-width: 48rem"; // 768px
+$media-l: "min-width: 64rem"; // 1024px
+$media-xl: "min-width: 84rem"; // 1340px
+
+// Wrappers
+
+$wrapper-site: px(1440);
