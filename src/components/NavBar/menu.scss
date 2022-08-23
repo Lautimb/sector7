@@ -1,0 +1,59 @@
+@use "../../scss/base/variables";
+
+.menu {
+  --width: 80vw;
+  --left: -80vw;
+  @media (variables.$media-l) {
+    --width: 40vw;
+    --left: -40vw;
+  }
+  @media (variables.$media-xl) {
+    --width: 25vw;
+    --left: -25vw;
+  }
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: var(--width);
+  height: 100vh;
+  background: variables.$black;
+  color: variables.$white;
+  button {
+    align-self: flex-end;
+    padding: variables.$size-2xs;
+    margin-right: variables.$size-s;
+    margin-top: variables.$size-s;
+    .fa-xmark {
+      font-size: variables.$size-m;
+    }
+  }
+  ul {
+    padding-left: variables.$size-xs;
+    li {
+      padding: variables.$size-xs 0;
+    }
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+      left: var(--left);
+    }
+    100% {
+      left: 0;
+    }
+  }
+  animation: fadeInAnimation 0.3s;
+  &.--close {
+    @keyframes fadeOutAnimation {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: var(--left);
+      }
+    }
+    left: var(--left);
+
+    animation: fadeOutAnimation 0.3s;
+  }
+}

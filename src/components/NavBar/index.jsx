@@ -4,7 +4,7 @@ import MenuButton from "./MenuButton";
 import SecondListIcons from "./SecondListIcons";
 const NavBar = () => {
   return (
-    <nav className="menu-mobile">
+    <nav className="navbar-mobile">
       <div className="wrapper-site">
         <ul>
           <li>
@@ -14,7 +14,9 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <MenuButton />
+            <MenuButton label="menu">
+              <i className="fa-solid fa-bars" />
+            </MenuButton>
           </li>
           <SecondListIcons />
         </ul>
