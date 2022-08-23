@@ -1,5 +1,5 @@
 import React from "react";
-
+import CartWidget from "./CartWidget";
 const SecondListIcons = () => {
   return (
     <>
@@ -10,10 +10,7 @@ const SecondListIcons = () => {
         </a>
       </li>
       <li>
-        <a href="/carrito">
-          <i className="fa-solid fa-cart-shopping" />
-          carrito
-        </a>
+        <CartWidget />
       </li>
       <li>
         <a href="/usuario">

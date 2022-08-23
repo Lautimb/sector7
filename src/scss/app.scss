@@ -11,11 +11,6 @@ body {
   background-color: variables.$black;
   font-family: variables.$font-primary;
 }
-button {
-  padding: 0;
-  color: inherit;
-  background: inherit;
-}
 ol,
 ul {
   list-style: none;
@@ -32,6 +27,7 @@ a {
   }
 }
 .wrapper-site {
+  width: 100%;
   max-width: variables.$wrapper-site;
   margin: 0 auto;
   position: relative;

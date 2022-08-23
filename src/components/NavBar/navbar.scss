@@ -1,6 +1,6 @@
 @use "../../scss/base/variables";
 
-.menu-mobile {
+.navbar-mobile {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -34,5 +34,8 @@
         }
       }
     }
+  }
+  .menu {
+    background-color: white;
   }
 }

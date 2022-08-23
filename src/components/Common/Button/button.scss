@@ -1,0 +1,13 @@
+@use "../../../scss/base/variables";
+
+.button {
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  background: inherit;
+  &:hover,
+  &:active {
+    color: variables.$red;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,9 @@
+@use "../scss/base/variables";
+
+.item-list-container {
+  padding: 40px 20px;
+  text-align: center;
+  h2 {
+    color: variables.$white;
+  }
+}
