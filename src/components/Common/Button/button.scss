@@ -2,12 +2,17 @@
 
 .button {
   cursor: pointer;
-  padding: 0;
   color: inherit;
   background: inherit;
+  padding: variables.$size-xs;
   &:hover,
   &:active {
     color: variables.$red;
     opacity: 1;
+  }
+  &.--primary {
+    padding: variables.$size-s;
+    color: variables.$white;
+    background: variables.$red;
   }
 }

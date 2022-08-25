@@ -1,6 +1,14 @@
 import React from "react";
 import "./button.scss";
-const Button = ({ onClick, className = "", children, type, title }) => {
+const Button = ({
+  onClick,
+  className = "",
+  children,
+  type,
+  title,
+  label,
+  ...r
+}) => {
   const extraClass = className ? ` --${className}` : "";
   return (
     <button
@@ -8,8 +16,10 @@ const Button = ({ onClick, className = "", children, type, title }) => {
       type={type}
       title={title}
       className={`button${extraClass}`}
+      {...r}
     >
       {children}
+      {label && <span className="text">{label}</span>}
     </button>
   );
 };

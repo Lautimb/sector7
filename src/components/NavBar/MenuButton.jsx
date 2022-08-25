@@ -12,9 +12,8 @@ const MenuButton = ({ label = "" }) => {
 
   return (
     <>
-      <Button onClick={handleMenu}>
+      <Button onClick={handleMenu} label={label}>
         <i className="fa-solid fa-bars" />
-        {label}
       </Button>
       {isOpened
         ? ReactDOM.createPortal(
