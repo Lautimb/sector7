@@ -1,0 +1,23 @@
+@use "../../scss/base/variables";
+
+.item-count {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background: variables.$dark-gray;
+  max-width: 200px;
+  color: variables.$white;
+  justify-content: space-between;
+
+  .title {
+    padding: variables.$size-xs;
+  }
+  .counter-container {
+    display: flex;
+    justify-content: space-between;
+    padding: variables.$size-xs 0;
+  }
+  #on-add-btn[disabled] {
+    opacity: 0.4;
+  }
+}
