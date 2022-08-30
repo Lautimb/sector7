@@ -1,0 +1,14 @@
+@use "../../scss/base/variables";
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: variables.$size-s;
+    @media (variables.$media-m) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: variables.$size-m;
+    }
+    @media (variables.$media-xl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

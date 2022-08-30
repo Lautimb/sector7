@@ -1,13 +1,13 @@
 @use "../../scss/base/variables";
 
 .header-site {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 0;
-  background: variables.$dark-gray;
-  color: variables.$light-gray;
-  height: variables.px(75);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: variables.$dark-gray;
+    color: variables.$light-gray;
+    height: variables.px(75);
 }

@@ -1,0 +1,14 @@
+@use "../../scss/base/variables";
+
+.item-list-container {
+    h2 {
+        color: variables.$white;
+    }
+    padding: variables.$size-s;
+    @media (variables.$media-m) {
+        padding: variables.$size-m;
+    }
+    @media (variables.$media-xl) {
+        padding: variables.$size-m;
+    }
+}
