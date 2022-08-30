@@ -3,8 +3,8 @@ $em: 0.0625em; //1px
 $rem: 0.0625rem; //1px
 
 @function px($base) {
-  $result: $rem * $base;
-  @return $result;
+    $result: $rem * $base;
+    @return $result;
 }
 // Font Families
 $font-primary: "Jost", sans-serif;
@@ -27,12 +27,13 @@ $white: #ffffff;
 $red: #ed0d1a;
 
 // Media Queries
-$media-xs: "min-width : 20rem"; // 320px
-$media-s: "min-width : 23rem"; // 368px
-$media-m: "min-width: 48rem"; // 768px
-$media-l: "min-width: 64rem"; // 1024px
-$media-xl: "min-width: 84rem"; // 1340px
+$media-xs: "min-width : 320px";
+$media-s: "min-width : 375px";
+$media-m: "min-width: 768px";
+$media-l: "min-width: 1024px";
+$media-xl: "min-width: 1240px";
 
 // Wrappers
 
-$wrapper-site: px(1440);
+$wrapper-site: px(1340);
+$height-navs: px(75);

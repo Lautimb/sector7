@@ -2,34 +2,48 @@
 
 // ---- RESET -----
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+html {
+    font-size: 16px;
 }
 body {
-  background-color: variables.$black;
-  font-family: variables.$font-primary;
+    background-color: variables.$black;
+    font-family: variables.$font-primary;
 }
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 a {
-  text-decoration: none;
-  color: inherit;
-  @media (variables.$media-l) {
-    &:hover {
-      opacity: 0.8;
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    @media (variables.$media-l) {
+        &:hover {
+            opacity: 0.8;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
     }
-  }
 }
 .wrapper-site {
-  width: 100%;
-  max-width: variables.$wrapper-site;
-  margin: 0 auto;
-  position: relative;
-  height: 100%;
+    width: 100%;
+    max-width: variables.$wrapper-site;
+    margin: 0 auto;
+    height: 100%;
+}
+.main {
+    margin-top: variables.$height-navs;
+    margin-bottom: variables.$height-navs;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: variables.$font-primary;
 }
