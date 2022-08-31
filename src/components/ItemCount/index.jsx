@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Common/Button";
+
 import "./item-count.scss";
 
 const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
@@ -22,8 +23,6 @@ const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
 
   return (
     <div className="item-count">
-      <span className="title">Ejemplo</span>
-      <span className="title">Stock disponible {stockQuant}</span>
       <div className="counter-container">
         <Button onClick={takeOffItem}>
           <i className="fa-solid fa-minus" />

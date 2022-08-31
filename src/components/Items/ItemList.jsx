@@ -4,15 +4,17 @@ import Card from "../Card";
 const ItemList = ({ items = [] }) => {
     return (
         <>
-            {items.map(({ id, title, description, price, stock, img }) => {
+            {items.map(({ id, title, subtitle, price, stock, img }) => {
                 return (
                     <Card
                         id={id}
+                        key={id}
                         title={title}
-                        description={description}
+                        subtitle={subtitle}
                         price={price}
                         stock={stock}
                         img={img}
+
                     />
                 );
             })}

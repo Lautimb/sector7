@@ -1,0 +1,10 @@
+@use "../../scss/base/variables";
+
+.item-detail-container {
+    .loader {
+        padding: 0 variables.$size-s;
+        @media (variables.$media-xl) {
+            padding: 0;
+        }
+    }
+}
