@@ -3,13 +3,13 @@
 .item-count {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    background: variables.$dark-gray;
-    max-width: 200px;
+    background: variables.$gray;
+    width: 100%;
+    max-width: variables.px(425);
     color: variables.$white;
     justify-content: space-between;
     margin-bottom: variables.$size-m;
-
+    margin: auto;
     .title {
         padding: variables.$size-xs;
     }

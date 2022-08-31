@@ -2,8 +2,8 @@
 
 .card {
     width: 100%;
-    background-color: variables.$dark-gray;
-    color: variables.$white;
+    background-color: variables.$gray;
+    color: variables.$light-gray;
     width: 100%;
     padding: variables.$size-m;
     .placeholder {
@@ -11,6 +11,9 @@
         img {
             width: 100%;
         }
+    }
+    span{
+        display: inline-block;
     }
     .data-container {
         display: grid;
@@ -24,6 +27,7 @@
                 font-size: variables.$size-s;
                 margin-bottom: variables.$size-xs;
             }
+            .subtitle,
             .description,
             .stock {
                 font-size: variables.px(12);
@@ -35,6 +39,34 @@
         h2,
         h3 {
             font-weight: 400;
+        }
+    }
+    &.--detail {
+        .placeholder {
+            border-bottom: 1px solid variables.$medium-gray;
+            margin-bottom: variables.$size-m;
+        }
+        .data-container {
+            display: flex;
+            flex-direction: column;
+            .title-description-container {
+                display: flex;
+                flex-direction: column;
+                .title{
+                    font-size: variables.$size-l;
+                }
+                .subtitle{
+                    font-size: variables.$size-s;
+                    opacity: .6;
+                    margin-bottom: variables.$size-s;
+                }
+                .description{
+                    margin-bottom: variables.$size-s;
+                }
+            }
+        }
+        .extra-component{
+            margin-top: variables.$size-m;
         }
     }
 }

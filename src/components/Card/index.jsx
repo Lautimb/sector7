@@ -3,24 +3,36 @@ import "./card.scss";
 const Card = ({
     id = "",
     title = "",
+    subtitle = "",
     description = "",
     img = "",
     price = "",
     stock = "",
+    key,
+    className = "",
+    extraComponent,
 }) => {
+    const classCondition = className ? ` ${className}` : "";
     return (
-        <article className="card" key={id}>
+        <article className={`card${classCondition}`} key={key}>
             <div className="placeholder">
                 <img src={img} alt={title} />
             </div>
             <div className="data-container">
                 <div className="title-description-container">
-                    <h2 className="title">{title}</h2>
-                    <h3 className="description">{description}</h3>
-                    <span className="stock">stock: {stock}</span>
+                    {title && <h2 className="title">{title}</h2>}
+                    {subtitle && <h3 className="subtitle">{subtitle}</h3>}
+                    {description && (
+                        <span className="description">{description}</span>
+                    )}
+                    {stock && <span className="stock">stock: {stock}</span>}
                 </div>
-                <span className="price">${price}</span>
+                {price && <span className="price">${price}</span>}
             </div>
+            <div></div>
+            {extraComponent && (
+                <div className="extra-component">{extraComponent}</div>
+            )}
         </article>
     );
 };
