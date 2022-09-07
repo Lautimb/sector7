@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card";
-import { productData } from "./product";
 import ItemCount from "../ItemCount";
+import { useParams } from "react-router-dom";
+import { productsData } from "./productsData";
 
 import "./item-detail-container.scss";
 
@@ -9,13 +10,19 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
+    const { itemId } = useParams();
+
     useEffect(() => {
-        const getItems = new Promise((resolve) => {
+        const getItem = new Promise((resolve) => {
             setTimeout(() => {
-                resolve(productData);
-            }, 2000);
+                resolve(
+                    productsData.find(
+                        (product) => product.id === Number(itemId)
+                    )
+                );
+            }, 300);
         });
-        getItems
+        getItem
             .then((result) => {
                 setProduct(result);
             })
@@ -25,7 +32,7 @@ const ItemDetailContainer = () => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }, [product]);
+    }, [itemId]);
 
     return (
         <div className="item-detail-container">

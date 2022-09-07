@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../Layout";
 import ItemList from "./ItemList";
-import { products } from "./products";
+import { useParams } from "react-router-dom";
+import { productsData } from "./productsData";
 
 import "./item-list-container.scss";
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { categoryId } = useParams();
 
     useEffect(() => {
         const getItems = new Promise((resolve) => {
             setTimeout(() => {
-                resolve(products);
-            }, 2000);
+                resolve(
+                    categoryId
+                        ? productsData.filter(
+                              (product) =>
+                                  product.category === Number(categoryId)
+                          )
+                        : productsData
+                );
+            }, 300);
         });
         getItems
             .then((result) => {
@@ -25,7 +34,7 @@ const ItemListContainer = () => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }, []);
+    }, [categoryId]);
     return (
         <div className="item-list-container">
             {isLoading ? (

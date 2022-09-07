@@ -9,7 +9,7 @@ const Button = ({
   label,
   ...r
 }) => {
-  const extraClass = className ? ` --${className}` : "";
+  const extraClass = className ? ` ${className}` : "";
   return (
     <button
       onClick={onClick}

@@ -14,7 +14,7 @@ const ItemList = ({ items = [] }) => {
                         price={price}
                         stock={stock}
                         img={img}
-
+                        withLink
                     />
                 );
             })}

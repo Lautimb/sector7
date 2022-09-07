@@ -1,0 +1,15 @@
+@use "../../../scss/base/variables";
+
+.dropdown {
+    .button {
+        margin: 0;
+        position: absolute;
+        right: 16px;
+        .fa-caret-down {
+            &.--rotate {
+                transform: rotate(180deg);
+                transition: all 0.3s;
+            }
+        }
+    }
+}

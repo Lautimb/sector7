@@ -38,4 +38,10 @@
     .menu {
         background-color: white;
     }
+    .active {
+        color: variables.$red;
+    }
+    @media (variables.$media-l) {
+        display: none;
+    }
 }

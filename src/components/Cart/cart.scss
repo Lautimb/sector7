@@ -1,0 +1,7 @@
+@use "../../scss/base/variables";
+
+.cart {
+    h2 {
+        color: variables.$white;
+    }
+}

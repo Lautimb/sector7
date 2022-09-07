@@ -33,8 +33,11 @@ $media-s: "min-width : 375px";
 $media-m: "min-width: 768px";
 $media-l: "min-width: 1024px";
 $media-xl: "min-width: 1340px";
+$media-xxl: "min-width: 1440px";
 
 // Wrappers
 
 $wrapper-site: px(1340);
 $height-navs: px(75);
+$height-header-top: px(100);
+$height-header-bottom: px(75);

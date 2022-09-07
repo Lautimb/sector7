@@ -1,0 +1,7 @@
+@use "../../scss/base/variables";
+
+.user {
+    h2 {
+        color: variables.$white;
+    }
+}

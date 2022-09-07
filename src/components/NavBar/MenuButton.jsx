@@ -12,7 +12,7 @@ const MenuButton = ({ label = "" }) => {
 
     return (
         <>
-            <Button onClick={handleMenu} label={label}>
+            <Button onClick={handleMenu} label={label} className="menu-button">
                 <i className="fa-solid fa-bars" />
             </Button>
             {isOpened

@@ -1,0 +1,12 @@
+@use "../../../scss/base/variables";
+
+.categories-container {
+    a {
+        &.active {
+            color: variables.$red;
+        }
+    }
+    li {
+        border: none;
+    }
+}
