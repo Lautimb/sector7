@@ -1,0 +1,9 @@
+@use "../../scss/base/variables";
+
+.second-list-icons {
+    a {
+        &.active {
+            color: variables.$red;
+        }
+    }
+}

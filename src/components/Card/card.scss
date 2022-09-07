@@ -1,6 +1,11 @@
 @use "../../scss/base/variables";
 
 .card {
+    a {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
     width: 100%;
     background-color: variables.$gray;
     color: variables.$light-gray;
@@ -8,16 +13,19 @@
     padding: variables.$size-m;
     .placeholder {
         overflow: hidden;
+        margin: auto;
         img {
             width: 100%;
         }
     }
-    span{
+    span {
         display: inline-block;
     }
     .data-container {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        margin: auto 0;
+        margin-bottom: 0;
         .title-description-container {
             grid-column: 1 / 6;
             font-size: variables.$size-s;
@@ -49,24 +57,40 @@
         .data-container {
             display: flex;
             flex-direction: column;
+            margin: 0;
             .title-description-container {
                 display: flex;
                 flex-direction: column;
-                .title{
+                .title {
                     font-size: variables.$size-l;
                 }
-                .subtitle{
+                .subtitle {
                     font-size: variables.$size-s;
-                    opacity: .6;
+                    opacity: 0.6;
                     margin-bottom: variables.$size-s;
                 }
-                .description{
+                .description {
                     margin-bottom: variables.$size-s;
                 }
             }
         }
-        .extra-component{
+        .extra-component {
             margin-top: variables.$size-m;
+        }
+        @media (variables.$media-l) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .placeholder {
+                max-height: none;
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+            .data-container {
+                justify-content: center;
+            }
+            .extra-component {
+                grid-column: 1 / 3;
+            }
         }
     }
 }

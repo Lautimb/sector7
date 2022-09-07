@@ -7,4 +7,7 @@
             padding: 0;
         }
     }
+    @media (variables.$media-l) {
+        margin-top: variables.$height-navs + variables.$size-l;
+    }
 }
