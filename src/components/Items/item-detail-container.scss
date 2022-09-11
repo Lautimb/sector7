@@ -10,4 +10,9 @@
     @media (variables.$media-l) {
         margin-top: variables.$height-navs + variables.$size-l;
     }
+    .--to-cart{
+        text-align: center;
+        max-width: variables.px(450);
+        margin: auto;
+    }
 }

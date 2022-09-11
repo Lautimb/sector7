@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import ItemCount from "../ItemCount";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { productsData } from "./productsData";
 
+import "../Common/Button/button.scss";
 import "./item-detail-container.scss";
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [stock, setStock] = useState(false);
+    const [showButtonCart, setShowButtonCart] = useState(false);
 
     const { itemId } = useParams();
+
+    const onAdd = (count) => {
+        stock > 0 && setStock(stock - count);
+        setShowButtonCart(true);
+    };
 
     useEffect(() => {
         const getItem = new Promise((resolve) => {
@@ -25,6 +33,7 @@ const ItemDetailContainer = () => {
         getItem
             .then((result) => {
                 setProduct(result);
+                setStock(result.stock);
             })
             .catch((err) => {
                 console.log("error", err);
@@ -33,7 +42,7 @@ const ItemDetailContainer = () => {
                 setIsLoading(false);
             });
     }, [itemId]);
-
+    console.log(stock);
     return (
         <div className="item-detail-container">
             {isLoading ? (
@@ -44,10 +53,22 @@ const ItemDetailContainer = () => {
                     subtitle={product.subtitle}
                     description={product.description}
                     price={product.price}
-                    stock={product.stock}
+                    stock={stock}
                     img={product.img}
                     className="--detail"
-                    extraComponent={<ItemCount />}
+                    extraComponent={
+                        !showButtonCart ? (
+                            <ItemCount
+                                stock={stock}
+                                onAdd={onAdd}
+                                initial={stock === 0 ? 0 : 1}
+                            />
+                        ) : (
+                            <Link to="/cart" className="button --primary --to-cart">
+                                Ir al carrito
+                            </Link>
+                        )
+                    }
                 />
             )}
         </div>

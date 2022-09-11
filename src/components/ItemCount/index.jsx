@@ -11,10 +11,11 @@ const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
     const takeOffItem = () => {
         if (count > 0) setCount(count - 1);
     };
+
     useEffect(() => {
         setCount(initial);
         if (stockQuant === 0) {
-            setCount("Sin STOCK");
+            setCount(0);
             const onAddBtn = document.querySelector("#on-add-btn");
             if (onAddBtn) onAddBtn.setAttribute("disabled", "");
         }
@@ -26,7 +27,9 @@ const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
                 <Button onClick={takeOffItem}>
                     <i className="fa-solid fa-minus" />
                 </Button>
-                <span className="counter">{count}</span>
+                <span className="counter">
+                    {stockQuant === 0 ? "Sin stock" : count}
+                </span>
                 <Button onClick={addItem}>
                     <i className="fa-solid fa-plus" />
                 </Button>
