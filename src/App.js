@@ -28,7 +28,7 @@ function App() {
                         path="/category/:categoryId"
                         element={<ItemListContainer />}
                     />
-                    <Route exact path="/carrito" element={<Cart />} />
+                    <Route exact path="/cart" element={<Cart />} />
                     <Route exact path="/favoritos" element={<Favs />} />
                     <Route exact path="/usuario" element={<User />} />
                 </Routes>

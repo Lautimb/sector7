@@ -29,7 +29,9 @@ const Card = ({
                         {description && (
                             <span className="description">{description}</span>
                         )}
-                        {stock && <span className="stock">stock: {stock}</span>}
+                        {(stock || stock === 0) && (
+                            <span className="stock">stock: {stock}</span>
+                        )}
                     </div>
                     {price && <span className="price">${price}</span>}
                 </div>
