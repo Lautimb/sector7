@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Common/Button";
+import { useParams } from "react-router-dom";
+
 import "./item-count.scss";
 
-const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
+const ItemCount = ({
+    stock = 0,
+    initial,
+    onAdd = () => {},
+    qtyProductInCart = 0,
+}) => {
     const [count, setCount] = useState(initial);
-    const [stockQuant, setStockQuant] = useState(stock);
+    const { itemId } = useParams();
+    useEffect(() => {
+        if (stock === qtyProductInCart) {
+            setCount(0);
+        }
+    }, [stock, qtyProductInCart, itemId]);
+
     const addItem = () => {
-        if (count < stockQuant) setCount(count + 1);
-    };
-    const takeOffItem = () => {
-        if (count > 0) setCount(count - 1);
+        if (count + qtyProductInCart < stock) setCount(count + 1);
     };
 
-    useEffect(() => {
-        setCount(initial);
-        if (stockQuant === 0) {
-            setCount(0);
-            const onAddBtn = document.querySelector("#on-add-btn");
-            if (onAddBtn) onAddBtn.setAttribute("disabled", "");
-        }
-    }, [stockQuant, initial]);
+    const takeOffItem = () => {
+        if (count + qtyProductInCart > 0) setCount(count - 1);
+    };
 
     return (
         <div className="item-count">
@@ -27,9 +32,7 @@ const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
                 <Button onClick={takeOffItem}>
                     <i className="fa-solid fa-minus" />
                 </Button>
-                <span className="counter">
-                    {stockQuant === 0 ? "Sin stock" : count}
-                </span>
+                <span className="counter">{count}</span>
                 <Button onClick={addItem}>
                     <i className="fa-solid fa-plus" />
                 </Button>
@@ -37,10 +40,9 @@ const ItemCount = ({ stock = 0, initial, onAdd = () => {} }) => {
             <Button
                 onClick={() => {
                     onAdd(count);
-                    setStockQuant(stockQuant - count);
                 }}
                 className="--primary"
-                label="Agregar al carrito"
+                label={count >= 0 ? "Agregar al carrito" : "Quitar del carrito"}
                 id="on-add-btn"
             />
         </div>

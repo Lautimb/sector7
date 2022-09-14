@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import Card from "../Card";
 import ItemCount from "../ItemCount";
 import { useParams, Link } from "react-router-dom";
@@ -13,13 +14,18 @@ const ItemDetailContainer = () => {
     const [stock, setStock] = useState(false);
     const [showButtonCart, setShowButtonCart] = useState(false);
 
+    const { addToCart, totalQuantityProduct } = useContext(CartContext);
     const { itemId } = useParams();
 
+    const isEqualStockAndQuantityProduct =
+        stock === totalQuantityProduct(product.id);
+
     const onAdd = (count) => {
-        stock > 0 && setStock(stock - count);
+        addToCart(product, count);
         setShowButtonCart(true);
     };
 
+    
     useEffect(() => {
         const getItem = new Promise((resolve) => {
             setTimeout(() => {
@@ -42,7 +48,7 @@ const ItemDetailContainer = () => {
                 setIsLoading(false);
             });
     }, [itemId]);
-    console.log(stock);
+
     return (
         <div className="item-detail-container">
             {isLoading ? (
@@ -58,13 +64,29 @@ const ItemDetailContainer = () => {
                     className="--detail"
                     extraComponent={
                         !showButtonCart ? (
-                            <ItemCount
-                                stock={stock}
-                                onAdd={onAdd}
-                                initial={stock === 0 ? 0 : 1}
-                            />
+                            <>
+                                <ItemCount
+                                    stock={stock}
+                                    onAdd={onAdd}
+                                    initial={1}
+                                    qtyProductInCart={totalQuantityProduct(
+                                        Number(itemId)
+                                    )}
+                                />
+                                {isEqualStockAndQuantityProduct && (
+                                    <Link
+                                        to="/cart"
+                                        className="button --primary --to-cart --mt"
+                                    >
+                                        Ir al carrito
+                                    </Link>
+                                )}
+                            </>
                         ) : (
-                            <Link to="/cart" className="button --primary --to-cart">
+                            <Link
+                                to="/cart"
+                                className="button --primary --to-cart"
+                            >
                                 Ir al carrito
                             </Link>
                         )

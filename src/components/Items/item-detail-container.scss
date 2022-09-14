@@ -14,5 +14,9 @@
         text-align: center;
         max-width: variables.px(450);
         margin: auto;
+        &.--mt{
+            margin-top: variables.$size-s;
+            height: fit-content;
+        }
     }
 }

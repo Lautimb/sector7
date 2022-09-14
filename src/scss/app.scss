@@ -37,7 +37,7 @@ a {
     height: 100%;
 }
 .main {
-    margin-top: variables.$height-navs;
+    margin-top: variables.$height-header-top;
     margin-bottom: variables.$height-navs;
     @media (variables.$media-l) {
         margin-top: variables.$height-header-top + variables.$height-header-bottom;
