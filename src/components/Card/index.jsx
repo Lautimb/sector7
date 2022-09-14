@@ -1,5 +1,7 @@
 import React from "react";
+import Button from "../Common/Button";
 import { ConditionalLinkContainer } from "../Containers/ConditionalLinkContainer";
+import { NavLink } from "react-router-dom";
 
 import "./card.scss";
 
@@ -14,6 +16,9 @@ const Card = ({
     className = "",
     extraComponent,
     withLink,
+    deleteProductCart,
+    qty,
+    isCart = false,
 }) => {
     const classCondition = className ? ` ${className}` : "";
     return (
@@ -34,9 +39,23 @@ const Card = ({
                         )}
                     </div>
                     {price && <span className="price">${price}</span>}
+                    {qty && <span>x {qty}</span>}
+                    {isCart && (
+                        <NavLink className="to-cart" to={`/item/${id}`}>
+                            Ver producto
+                        </NavLink>
+                    )}
                 </div>
                 {extraComponent && (
                     <div className="extra-component">{extraComponent}</div>
+                )}
+                {deleteProductCart && (
+                    <Button
+                        onClick={() => deleteProductCart(id)}
+                        className="--remove-product"
+                    >
+                        <i className="fa-solid fa-xmark" />
+                    </Button>
                 )}
             </ConditionalLinkContainer>
         </article>

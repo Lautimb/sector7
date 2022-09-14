@@ -1,7 +1,37 @@
 @use "../../scss/base/variables";
 
 .cart {
+    padding: 0 variables.$size-s;
+    color: variables.$white;
+    .grid {
+        display: flex;
+        flex-direction: column;
+        .cart-details-container {
+            margin-bottom: variables.$size-s;
+            order: -1;
+        }
+        @media (variables.$media-l) {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: variables.$size-s;
+            .products-container {
+                grid-column: 1 / 9;
+            }
+            .cart-details-container {
+                margin-bottom: 0;
+                order: 1;
+                grid-column: 9 / 13;
+            }
+            .without-products {
+                grid-column: 1 / 13;
+            }
+        }
+    }
     h2 {
         color: variables.$white;
+        margin-bottom: variables.$size-m;
+    }
+    .--clear-cart {
+        margin-bottom: variables.$size-s;
     }
 }

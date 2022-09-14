@@ -41,7 +41,7 @@ const ItemListContainer = () => {
                 <h2 className="loader">Cargando productos...</h2>
             ) : (
                 <Layout>
-                    <ItemList items={items} />
+                    <ItemList items={items} withLink/>
                 </Layout>
             )}
         </div>
