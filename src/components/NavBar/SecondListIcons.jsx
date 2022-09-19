@@ -8,7 +8,7 @@ const SecondListIcons = () => {
             <li>
                 <NavLink to="/favoritos" className="to-fav">
                     <i className="fa-regular fa-heart" />
-                    <span>favs</span>
+                    <span className="label">favs</span>
                 </NavLink>
             </li>
             <li>
@@ -17,7 +17,7 @@ const SecondListIcons = () => {
             <li>
                 <NavLink to="/usuario" className="to-user">
                     <i className="fa-regular fa-user" />
-                    <span>usuario</span>
+                    <span className="label">usuario</span>
                 </NavLink>
             </li>
         </>

@@ -50,7 +50,7 @@
                 .to-cart {
                     font-size: variables.$size-m;
                     padding: 0 variables.$size-xs;
-                    > span {
+                    .label {
                         display: none;
                     }
                 }
