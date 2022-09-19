@@ -10,7 +10,6 @@ const CartProvider = ({ children }) => {
             setCart([...cart, { ...item, qty }]);
         }
     };
-    console.log(cart);
 
     // Limpiar carrito
     const clearCart = () => {
@@ -55,8 +54,18 @@ const CartProvider = ({ children }) => {
         return qty;
     };
 
+    // Total cantidad de productos
+    const totalQuantityProducts = () => {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.qty;
+        });
+        return total;
+    };
+
     // Total productos
     const totalProducts = () => cart.length;
+
 
     return (
         <CartContext.Provider
@@ -66,8 +75,9 @@ const CartProvider = ({ children }) => {
                 addToCart,
                 removeItem,
                 totalPrice,
-                totalProducts,
                 totalQuantityProduct,
+                totalQuantityProducts,
+                totalProducts,
             }}
         >
             {children}

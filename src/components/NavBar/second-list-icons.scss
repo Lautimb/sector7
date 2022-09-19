@@ -1,9 +1,24 @@
 @use "../../scss/base/variables";
 
-.second-list-icons {
-    a {
-        &.active {
-            color: variables.$red;
-        }
+a {
+    &.active {
+        color: variables.$red;
+    }
+}
+.to-cart {
+    position: relative;
+    .products-in-cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: variables.px(12);
+        position: absolute;
+        min-width: 20px;
+        min-height: 20px;
+        top: -5px;
+        right: 0px;
+        color: variables.$white;
+        background-color: variables.$red;
+        border-radius: 100%;
     }
 }

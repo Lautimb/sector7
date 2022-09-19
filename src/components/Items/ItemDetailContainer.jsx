@@ -78,7 +78,7 @@ const ItemDetailContainer = () => {
                                         to="/cart"
                                         className="button --primary --to-cart --mt"
                                     >
-                                        Ir al carrito
+                                        Terminar mi compra
                                     </Link>
                                 )}
                             </>
@@ -87,7 +87,7 @@ const ItemDetailContainer = () => {
                                 to="/cart"
                                 className="button --primary --to-cart"
                             >
-                                Ir al carrito
+                                Terminar mi compra
                             </Link>
                         )
                     }

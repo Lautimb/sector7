@@ -1,7 +1,8 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Button from "../Common/Button";
 import Card from "../Card";
+import { NavLink } from "react-router-dom";
 
 import "./cart.scss";
 
@@ -44,7 +45,10 @@ const Cart = () => {
                     </div>
                 ) : (
                     <div className="without-products">
-                        PORFAVOR AGREGA PRODUCTOS AL CARRITO{" "}
+                        Para agregar productos al carrito haz{" "}
+                        <NavLink to="/" className="active">
+                            click aquí
+                        </NavLink>
                     </div>
                 )}
             </div>
