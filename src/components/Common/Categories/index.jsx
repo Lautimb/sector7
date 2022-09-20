@@ -7,19 +7,19 @@ const Categories = () => {
     return (
         <ul className="categories-container">
             <li>
-                <NavLink to="/category/1">auriculares</NavLink>
+                <NavLink to="/category/auriculares">auriculares</NavLink>
             </li>
             <li>
-                <NavLink to="/category/2">teclados</NavLink>
+                <NavLink to="/category/teclados">teclados</NavLink>
             </li>
             <li>
-                <NavLink to="/category/3">camaras</NavLink>
+                <NavLink to="/category/camaras">camaras</NavLink>
             </li>
             <li>
-                <NavLink to="/category/4">ratones</NavLink>
+                <NavLink to="/category/ratones">ratones</NavLink>
             </li>
             <li>
-                <NavLink to="/category/5">monitores</NavLink>
+                <NavLink to="/category/monitores">monitores</NavLink>
             </li>
         </ul>
     );

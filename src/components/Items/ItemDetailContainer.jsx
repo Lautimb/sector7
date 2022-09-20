@@ -3,7 +3,8 @@ import { CartContext } from "../../context/CartContext";
 import Card from "../Card";
 import ItemCount from "../ItemCount";
 import { useParams, Link } from "react-router-dom";
-import { productsData } from "./productsData";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 import "../Common/Button/button.scss";
 import "./item-detail-container.scss";
@@ -25,28 +26,19 @@ const ItemDetailContainer = () => {
         setShowButtonCart(true);
     };
 
-    
     useEffect(() => {
-        const getItem = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(
-                    productsData.find(
-                        (product) => product.id === Number(itemId)
-                    )
-                );
-            }, 300);
-        });
-        getItem
-            .then((result) => {
-                setProduct(result);
-                setStock(result.stock);
-            })
-            .catch((err) => {
-                console.log("error", err);
-            })
-            .finally(() => {
+        const itemCollection = collection(db, "products");
+        const ref = doc(itemCollection, itemId);
+        getDoc(ref)
+            .then((doc) => {
+                setProduct({
+                    id: doc.id,
+                    ...doc.data(),
+                });
                 setIsLoading(false);
-            });
+                setStock(doc.data().stock);
+            })
+            .catch((err) => console.log(err));
     }, [itemId]);
 
     return (
@@ -70,7 +62,7 @@ const ItemDetailContainer = () => {
                                     onAdd={onAdd}
                                     initial={1}
                                     qtyProductInCart={totalQuantityProduct(
-                                        Number(itemId)
+                                        itemId
                                     )}
                                 />
                                 {isEqualStockAndQuantityProduct && (
