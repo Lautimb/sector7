@@ -1,0 +1,17 @@
+@use "../../scss/base/variables";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    input {
+        font-family: variables.$font-secondary;
+        background-color: variables.$black;
+        padding: variables.$size-s;
+        border: 1px solid variables.$medium-gray;
+        margin-bottom: variables.$size-s;
+        color: variables.$white;
+        &:focus {
+            border-color: variables.$red;
+        }
+    }
+}

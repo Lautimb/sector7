@@ -1,15 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { NavLink } from "react-router-dom";
 import Button from "../Common/Button";
 import Card from "../Card";
-import { NavLink } from "react-router-dom";
+import Form from "../Form";
+import Modal from "../Common/Modal";
 
 import "./cart.scss";
 
 const Cart = () => {
+    const [orderId, setOrderId] = useState(false);
     const { cart, clearCart, removeItem, totalPrice, totalQuantityProduct } =
         useContext(CartContext);
-
+    const total = Number(totalPrice());
+    const getOrderId = (orderId) => {
+        setOrderId(orderId);
+    };
     return (
         <div className="cart">
             <h2>CARRITO</h2>
@@ -40,8 +46,16 @@ const Cart = () => {
                 </div>
                 {cart.length ? (
                     <div className="cart-details-container">
-                        <span>Total:</span>
-                        <span>{Number(totalPrice())}</span>
+                        <h3>
+                            <span>Total:</span>
+                            <span>{total}</span>
+                        </h3>
+                        <Form
+                            cart={cart}
+                            total={total}
+                            clearCart={clearCart}
+                            getOrderId={getOrderId}
+                        />
                     </div>
                 ) : (
                     <div className="without-products">
@@ -52,6 +66,19 @@ const Cart = () => {
                     </div>
                 )}
             </div>
+            {orderId && (
+                <Modal>
+                    <div className="order-container">
+                        <Button onClick={() => setOrderId(false)}>
+                            <i className="fa-solid fa-xmark" />
+                        </Button>
+                        <h4>
+                            Gracias por tu compra, tu numero de orden es:{" "}
+                            <span className="order-id">{orderId}</span>
+                        </h4>
+                    </div>
+                </Modal>
+            )}
         </div>
     );
 };

@@ -7,8 +7,10 @@
         display: flex;
         flex-direction: column;
         .cart-details-container {
-            margin-bottom: variables.$size-s;
-            order: -1;
+            margin: variables.$size-s 0;
+            h3 {
+                margin-bottom: variables.$size-s;
+            }
         }
         @media (variables.$media-l) {
             display: grid;
@@ -18,7 +20,7 @@
                 grid-column: 1 / 9;
             }
             .cart-details-container {
-                margin-bottom: 0;
+                margin: 0;
                 order: 1;
                 grid-column: 9 / 13;
             }
@@ -33,5 +35,27 @@
     }
     .--clear-cart {
         margin-bottom: variables.$size-s;
+        width: fit-content;
+    }
+    .overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .order-container {
+            display: flex;
+            flex-direction: column;
+            .button {
+                i {
+                    font-size: 30px;
+                }
+                width: variables.px(40);
+                align-self: flex-end;
+            }
+            padding: variables.$size-s;
+            max-width: 600px;
+            .order-id {
+                color: variables.$red;
+            }
+        }
     }
 }

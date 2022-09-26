@@ -5,7 +5,7 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const addToCart = (item, qty) => {
         if (isInCart(item.id)) {
-            addQty(item, qty);
+            addQty(item, Number(qty));
         } else {
             setCart([...cart, { ...item, qty }]);
         }
@@ -39,7 +39,7 @@ const CartProvider = ({ children }) => {
     const totalPrice = () => {
         let total = 0;
         cart.forEach((item) => {
-            total = total + item.price * item.qty;
+            total += Number(item.price) * Number(item.qty);
         });
         return total;
     };
@@ -65,7 +65,6 @@ const CartProvider = ({ children }) => {
 
     // Total productos
     const totalProducts = () => cart.length;
-
 
     return (
         <CartContext.Provider
