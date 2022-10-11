@@ -1,0 +1,20 @@
+@use "../../scss/base/variables";
+
+.input-container {
+    padding-bottom: variables.$size-s;
+    .input {
+        width: 100%;
+        font-family: variables.$font-secondary;
+        background-color: variables.$black;
+        padding: variables.$size-s;
+        border: 1px solid variables.$medium-gray;
+        margin-bottom: variables.$size-2xs;
+        color: variables.$white;
+        &:focus {
+            border-color: variables.$red;
+        }
+    }
+    .error-message {
+        color: variables.$red;
+    }
+}

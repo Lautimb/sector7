@@ -11,17 +11,14 @@ const CartProvider = ({ children }) => {
         }
     };
 
-    // Limpiar carrito
     const clearCart = () => {
         setCart([]);
     };
 
-    // Validacion si el producto esta en el carrito
     const isInCart = (id) => {
         return cart.some((prod) => prod.id === id);
     };
 
-    // Agregar cantidad
     const addQty = (item, qty) => {
         const updateCart = cart.map((prod) =>
             prod.id === item.id ? { ...prod, qty: prod.qty + qty } : prod
@@ -29,13 +26,11 @@ const CartProvider = ({ children }) => {
         setCart(updateCart);
     };
 
-    // Borrar producto
     const removeItem = (id) => {
         const deleteItem = cart.filter((item) => item.id !== id);
         setCart(deleteItem);
     };
 
-    // Total precio del carrito
     const totalPrice = () => {
         let total = 0;
         cart.forEach((item) => {
@@ -44,7 +39,6 @@ const CartProvider = ({ children }) => {
         return total;
     };
 
-    // Retorna total de cantidad y remueve el item si la qty es 0
     const totalQuantityProduct = (id) => {
         const productToCalc = cart.find((item) => item.id === id);
         const { qty } = productToCalc || {};
@@ -54,7 +48,6 @@ const CartProvider = ({ children }) => {
         return qty;
     };
 
-    // Total cantidad de productos
     const totalQuantityProducts = () => {
         let total = 0;
         cart.forEach((item) => {
@@ -63,7 +56,6 @@ const CartProvider = ({ children }) => {
         return total;
     };
 
-    // Total productos
     const totalProducts = () => cart.length;
 
     return (

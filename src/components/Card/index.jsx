@@ -14,9 +14,9 @@ const Card = ({
     price = "",
     stock = "",
     className = "",
-    extraComponent,
+    extraComponent = false,
     withLink,
-    deleteProductCart,
+    deleteProductCart = false,
     qty,
     isCart = false,
 }) => {

@@ -46,10 +46,13 @@ const Cart = () => {
                 </div>
                 {cart.length ? (
                     <div className="cart-details-container">
-                        <h3>
-                            <span>Total:</span>
-                            <span>{total}</span>
-                        </h3>
+                        {total && (
+                            <h3>
+                                <span>Total: $</span>
+                                <span>{total}</span>
+                            </h3>
+                        )}
+                        <h3>Formulario de compra</h3>
                         <Form
                             cart={cart}
                             total={total}
@@ -75,6 +78,9 @@ const Cart = () => {
                         <h4>
                             Gracias por tu compra, tu numero de orden es:{" "}
                             <span className="order-id">{orderId}</span>
+                        </h4>
+                        <h4>
+                            No te olvides de guardarlo!
                         </h4>
                     </div>
                 </Modal>
