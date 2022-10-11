@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SecondListIcons from "../NavBar/SecondListIcons";
-import Search from "./Search";
 import MenuButton from "../NavBar/MenuButton";
 import Categories from "../Common/Categories";
 
@@ -17,7 +16,6 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="icons-container">
-                    <Search />
                     <ul className="second-list-icons">
                         <SecondListIcons />
                     </ul>

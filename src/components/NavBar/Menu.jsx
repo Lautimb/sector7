@@ -24,10 +24,6 @@ const Menu = ({ handleClose = () => {} }) => {
                         <Categories />
                     </Dropdown>
                 </li>
-                <li>preguntas frecuentes</li>
-                <li>redes sociales</li>
-                <li>envios</li>
-                <li>ayuda</li>
             </ul>
         </nav>
     );
